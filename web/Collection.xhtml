@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Collection</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+
+    </h:head>
+    <h:body style="font-family: 'Open Sans';zoom: 90%;">
+        <section id="container" >
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            <header class="header " style="background: #424A5D;" >
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <!--logo start-->
+                <a class="logo"><b>RECENS APP</b></a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+
+                    <!--  notification end -->
+                </div>
+                <h:form>
+                    <div class="top-menu">
+                        <ul class="nav pull-right top-menu">
+                            <li>
+                                <b:commandLink iconAwesome="fa fa-power-off" class="logout" action="#{login.logout}" value="Se deconnecter"></b:commandLink>
+                            </li>
+                        </ul>
+                    </div></h:form>
+            </header>
+            <!--header end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse bg-gray-800 ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu " id="nav-accordion">
+                        <h5 class="centered" style="font-weight: 100;">#{login.typeUser(login.user)}</h5>
+                        <p class="centered"><img src="assets/img/logo_TPF.jpg" class="img-circle" width="60"/></p>
+                        <h5 class="centered">#{login.user}</h5>
+
+                        <li class=" mt " >
+                            <a  href="Accueil.xhtml">
+                                <i class=" fa fa-home"></i>
+                                <span >Accueil</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-users"></i>
+                                <span>Personnes</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Personnes.xhtml">Types de personne</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Carriere.xhtml">Types de carrière</a></li>
+                                </c:if>
+
+                            </ul>
+                        </li>
+
+                        
+                            <li class="sub-menu">
+                                <a  href="javascript:;" >
+                                    <i class="fa fa-try"></i>
+                                    <span>Espèces</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a  href="Espece.xhtml">Espèce</a></li>
+                                    <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Regne.xhtml">Règne</a></li>
+                                    <li ><a  href="Embranchement.xhtml">Embranchement</a></li>
+                                    <li><a  href="Classe.xhtml">Classe</a></li>
+                                    <li><a  href="Ordre.xhtml">Ordre</a></li>                                
+                                    <li><a  href="Famille.xhtml">Famille</a></li>
+                                    <li><a  href="Genre.xhtml">Genre</a></li>
+                                    <li><a  href="StatusUCN.xhtml">Statut IUCN</a></li>
+                                    </c:if>
+                                </ul>
+                            </li>
+                        
+
+                        <li class="sub-menu">
+                            <a class="active" href="javascript:;" >
+                                <i class="fa fa-compass"></i>
+                                <span>Collecte</span>
+                            </a>
+                            <ul class="sub">
+                                <li class="active"><a  href="Collection.xhtml">Collection</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="CodeCollection.xhtml">Code de collection</a></li>
+                                    <li ><a  href="MethodeObs.xhtml">Méthode d'observation</a></li>                                
+                                    <li><a  href="MethodeCapture.xhtml">Méthode de capture</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-map-marker"></i>
+                                <span>Localisation</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Site.xhtml">Site</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Region.xhtml">Region</a></li>
+                                    <li><a  href="District.xhtml">District</a></li>
+                                    <li><a  href="Commune.xhtml">Commune</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-bar-chart-o"></i>
+                                <span>Autres</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Bilan.xhtml">Bilans</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Comptes.xhtml">Comptes</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper site-min-height">
+                    <div class="mt" style="margin-top: 1.5rem;">
+                        <h4 style="font-weight: 300;"><i class="fa fa-compass"></i> Collection <i class="fa fa-angle-right"></i> Liste des collections</h4>
+                    </div>
+                    <hr></hr>
+
+                    <div class="panel panel-theme" style="zoom: 90%;">
+                        <div class="panel-heading">Liste des collections</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div style="margin-left: 1rem;">
+                                    La liste de toutes les collections effectuées par le TPF Madagascar
+                                    <form  action="NouveauCollection.xhtml" style="margin-top: 0.5rem;">                      
+                                        <button class="btn  btn-theme btn-sm" type="submit"><i class="fa fa-plus"></i> Nouvelle collection </button>
+                                    </form>
+                                </div>
+
+                                <div class="col-md-12" style="margin-top: 1rem;">
+                                    <f:view>
+                                        <h:form>
+                                            
+                                            <p:dataTable class="form-group" id="tbl" var="item" value="#{bean_Collection.lister()}"
+                                                         paginator="true"
+                                                         emptyMessage="Aucune donnée à afficher"                                                         
+                                                         currentPageReportTemplate="{startRecord} à {endRecord} sur les {totalRecords} collections"
+                                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} {Exporters}"
+                                                         rowsPerPageTemplate="5,10,15" rows="5"  style="font-family: 'Open Sans';margin-bottom:20px;zoom: 85%;"  widgetVar="motcle" scrollable="true">
+
+                                                <f:facet name="{Exporters}">
+                                                    <div style="float:right;padding-top: 5px; margin-right: 30rem;">
+                                                        
+                                                        <h:commandLink>
+                                                            <p:graphicImage url="assets/img/excel.png" width="25" title="Exporter en EXCEL"/>
+                                                            <p:dataExporter type="xls" target="tbl" fileName="collection" />
+                                                        </h:commandLink>
+                                                        
+                                                        <h:commandLink>
+                                                            <p:graphicImage url="assets/img/csv.png" width="25" title="Exporter en CSV"/>
+                                                            <p:dataExporter type="csv" target="tbl" fileName="collection"  />
+                                                        </h:commandLink>
+                                                        
+
+                                                        <h:commandLink>
+                                                            <p:graphicImage url="assets/img/pdf.png" width="25" title="Exporter en PDF"/>
+                                                            <p:dataExporter type="pdf" target="tbl" fileName="collection"/>
+                                                        </h:commandLink>
+
+                                                    </div>
+                                                </f:facet>
+                                                
+                                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                                <p:column width="80" exportable="false">
+                                                    <f:facet name="header">
+
+                                                    </f:facet>
+
+                                                    <b:commandButton  iconAwesome="fa fa-edit fa-1x" title="Modifier" style="font-family: 'Open Sans';" class="btn btn-sm btn-warning" action="#{bean_Collection.obtenir(item.id)}"/>
+
+                                                </p:column>
+                                                <p:column width="80" exportable="false">
+                                                    <f:facet name="header">
+
+                                                    </f:facet>
+                                                    <b:commandButton  iconAwesome="fa fa-trash-o fa-1x" title="Supprimer" style="font-family: 'Open Sans';" class="btn btn-sm btn-danger" action="#{bean_Collection.obtenirPourSupprimer(item.id)}"/>
+
+                                                </p:column>
+                                                    </c:if>
+                                                
+                                                <p:column width="80" exportable="false">
+                                                    <f:facet name="header">
+
+                                                    </f:facet>
+                                                    <b:commandButton iconAwesome="fa fa-search fa-1x" title="Visualiser" style="font-family: 'Open Sans'; background: #CECECE;" action="#{bean_Collection.visualiser(item.id)}" class="btn btn-sm " />
+                                                </p:column>
+
+                                                <p:column width="70">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Id" />
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.id}" />
+                                                </p:column>
+
+                                                <p:column width="450" filterBy="#{item.titre}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Titre"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.titre}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.codeinstitution}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Code de l'institution"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.codeinstitution}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.codecollection}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Code de collection"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.codecollection}" />
+                                                </p:column>
+                                                
+                                                <p:column width="350" filterBy="#{item.desespece}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Espèce"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.desespece}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.dessite}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Site"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.dessite}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.typeobservateur}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Type d'observateur"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.typeobservateur}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.collecteur}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Collecteur(s)"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.collecteur}" />
+                                                </p:column>
+                                                
+                                                <p:column width="350" filterBy="#{item.guide}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Guide"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.guide}" />
+                                                </p:column>
+                                                
+                                                <p:column width="350" filterBy="#{item.habitatobs}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Habitat d'observation"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.habitatobs}" />
+                                                </p:column>
+                                                
+                                                <p:column width="350" filterBy="#{item.nbobserves}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Nombre(s) observé(s)"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.nbobserves}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.methodecollecte}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Méthode de collecte"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.methodecollecte}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.datedebut}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Date debut de collecte"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.datedebut}">
+                                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                                    </h:outputText>
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.datefin}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Date fin de collecte"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.datefin}">
+                                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                                    </h:outputText>
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.dateexacte}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Date exacte de collecte"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.dateexacte}">
+                                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                                    </h:outputText>
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.latitudedecimal}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Latitude décimal"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.latitudedecimal}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.longitudedecimal}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Longitude décimal"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.longitudedecimal}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.latitudeexacte}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Latitude exacte"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.latitudeexacte}" />
+                                                </p:column>
+
+                                                <p:column width="350" filterBy="#{item.longitudeexacte}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Longitude exacte"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.longitudeexacte}" />
+                                                </p:column>
+                                                
+                                                <p:column width="350" filterBy="#{item.altitudemin}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Altitude minimale (en mètre)"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.altitudemin}" />
+                                                </p:column>
+                                                
+                                                <p:column width="350" filterBy="#{item.altitudemax}">
+                                                    <f:facet name="header">
+                                                        <h:outputText value="Altitude maximale (en mètre)"/>
+                                                    </f:facet>
+                                                    <h:outputText value="#{item.altitudemax}" />
+                                                </p:column>
+                                                
+                                                
+
+
+                                            </p:dataTable>
+                                            
+
+
+                                        </h:form>
+                                    </f:view>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Content Row -->
+
+
+                </section><!--wrapper -->
+            </section><!-- /MAIN CONTENT -->
+
+            <!--main content end-->
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+        </section>
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+        <!--common script for all pages-->
+        <script src="assets/js/common-scripts.js"></script>
+
+        <!--script for this page-->
+
+        <script>
+            //custom select box
+
+            $(function () {
+                $('select.styled').customSelect();
+            });
+
+        </script>
+    </h:body>
+</html>
+
+

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Bilan annuel</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />    
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+    </h:head>
+    <h:body style="font-family: 'Open Sans';">
+        
+     
+           <h:form>
+        <b:commandButton id="login"
+                         value="X"
+                         class="btn btn-sm btn-danger"
+                         icon-align="center"                      
+                         action="BilanAnnuel.xhtml"
+                         type="Submit" 
+                         title="Fermer"
+                         style="zoom: 90%;margin-left: 90.5rem;margin-bottom: -38rem;"/>
+    </h:form>
+            <p:chart type="line"
+                 responsive="true"
+                 model="#{bean_BilanAnnuel.lineModel}" style="width: 50rem;margin-top: 18rem; margin-left: 44rem;" widgetVar="chart"/>
+          
+
+   
+     
+        <h:form>
+        <b:commandButton id="login"
+                         value="Exporter en PNG"
+                         class="btn btn-sm btn-primary"
+                         icon-align="left" 
+                         iconAwesome="fa fa-image"
+                         onclick="return downloadImage();"
+                         type="Submit" 
+                         style="zoom: 90%;margin-left: 65rem;"/>
+    </h:form>
+
+    <script type="application/javascript">
+       function downloadImage(){
+       var image = PF('chart').exportAsImage();
+       var imageSrc = $(image).attr('src');
+       var url = imageSrc.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+       var link = document.createElement('a');
+       link.download = "chart.png";
+       link.href = url;
+       document.body.appendChild(link);
+       link.click();
+       document.body.removeChild(link);
+       return false;
+    }
+    </script>
+        
+
+       
+        <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+        <script>
+            $.backstretch("assets/img/BilanAnnuel.PNG", {speed: 500});
+        </script>
+    </h:body>
+</html>
+

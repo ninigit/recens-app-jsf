@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Collection par site</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />    
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+    </h:head>
+    <h:body style="font-family: 'Open Sans';">
+        
+     
+           <h:form>
+        <b:commandButton id="login"
+                         value="X"
+                         class="btn btn-sm btn-danger"
+                         icon-align="center"                      
+                         action="EspeceParSite.xhtml"
+                         type="Submit" 
+                         title="Fermer"
+                         style="zoom: 90%;margin-left: 94.5rem;margin-bottom: -35rem;"/>
+    </h:form>
+       
+            <p:chart type="pie"
+                 responsive="true"
+                 model="#{bean_EspeceParSite.model}" style="width: 50rem;margin-top: 18rem; margin-left: 48rem;" widgetVar="chart"/>
+          
+     
+   
+     
+        <h:form>
+        <b:commandButton id="login"
+                         value="Exporter en PNG"
+                         class="btn btn-sm btn-primary"
+                         icon-align="left" 
+                         iconAwesome="fa fa-image"
+                         onclick="return downloadImage();"
+                         type="Submit" 
+                         style="zoom: 90%;margin-left: 67rem;margin-top: -2rem;"/>
+    </h:form>
+
+    <script type="application/javascript">
+       function downloadImage(){
+       var image = PF('chart').exportAsImage();
+       var imageSrc = $(image).attr('src');
+       var url = imageSrc.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+       var link = document.createElement('a');
+       link.download = "chart.png";
+       link.href = url;
+       document.body.appendChild(link);
+       link.click();
+       document.body.removeChild(link);
+       return false;
+    }
+    </script>
+        
+
+       
+        <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+        <script>
+            $.backstretch("assets/img/EspeceParSite.PNG", {speed: 500});
+        </script>
+    </h:body>
+</html>
+

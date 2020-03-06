@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Visualisation</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />    
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+    </h:head>
+    <h:body style="font-family: 'Open Sans';">
+        <style>
+            .formvisualisation {
+                max-width: 530px;
+                width: 500px;
+                margin: 10px auto 0;
+                background: #424A5D;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                zoom: 90%;
+                margin-top: 10rem;
+            }
+            .formvisualisation h2.form-login-heading {
+                margin: 0;
+                padding: 25px 20px;
+                text-align: center;
+                background: #107C41;
+                border-radius: 5px 5px 0 0;
+                -webkit-border-radius: 5px 5px 0 0;
+                color: #fff;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+            .colonne2{
+                margin-left: 22rem;
+                margin-top: -20rem;
+            }
+            .titre{
+                font-weight: 100;
+            }
+            .btnretour{
+                margin-left: 13rem;
+                zoom: 90%;
+            }
+
+        </style>
+
+        <div id="login-page" style="zoom: 90%;">
+            <div class="container">
+
+                <b:form class="formvisualisation"  >
+                    <h2 class="form-login-heading">Informations etudiant</h2>
+                    <h4 class="form-login-heading2" style="padding-bottom: 1rem">#{bean_Etudiant.etd.nom} #{bean_Etudiant.etd.prenoms}</h4>
+                    <div class="login-wrap" style="color: #fff;">
+
+                        <div class="col-md-3">
+
+                            <h5 class="titre">Nom</h5>
+                            <h5>#{bean_Etudiant.etd.nom}</h5>
+
+
+                            <h5 class="titre">Prénoms</h5>
+                            <h5>#{bean_Etudiant.etd.prenoms}</h5>
+
+
+                            <h5 class="titre">Date de naissance</h5>
+                            <h5><h:outputText value="#{bean_Etudiant.etd.datenaiss}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+
+                                </h:outputText></h5>
+
+
+                            <h5 class="titre">Lieu de naissance</h5>
+                            <h5>#{bean_Etudiant.etd.lieunaiss}</h5>
+
+
+                            <h5 class="titre">Sexe</h5>
+                            <h5>#{bean_Etudiant.etd.sexe}</h5>
+
+                        </div>
+                        <div class="col-md-3 colonne2" >
+                            <h5 class="titre">CIN</h5>
+                            <h5>#{bean_Etudiant.etd.cin}</h5>
+
+
+
+                            <h5 class="titre">Contact</h5>
+                            <h5>#{bean_Etudiant.etd.contact}</h5>
+
+
+                            <h5 class="titre">Université</h5>
+                            <h5>#{bean_Etudiant.etd.universite}</h5>
+                            
+                            <h5 class="titre">Niveau</h5>
+                            <h5>#{bean_Etudiant.etd.niveau}</h5>
+
+
+                            <h5 class="titre">Diplôme</h5>
+                            <h5>#{bean_Etudiant.etd.diplome}</h5>
+                            
+                        </div>
+                        <h5 class="titre" style="color: #424A5D;font-size: 2px;">Diplôme</h5>
+                         <hr></hr>
+                        
+                        
+                        <b:form>
+                            
+                        <b:commandButton  icon-align="left" iconAwesome="fa-arrow-left" class="btn btn-primary btnretour" action="#{bean_Etudiant.affichliste()}" value=" Retour à la liste" />
+                        </b:form>
+                    </div>
+                </b:form>
+                <!-- Modal -->
+
+                <!-- modal -->
+
+
+
+            </div>
+        </div>
+        <footer class="site-footer-login">
+            <div class="text-right" style="margin-right: 20px;margin-top:5rem;">
+                2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+
+            </div>
+        </footer>
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <!--BACKSTRETCH-->
+        <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+        <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+        <script>
+            $.backstretch("assets/img/ois6.jpg", {speed: 500});
+        </script>
+    </h:body>
+</html>
+

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Login</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+    </h:head>
+    <h:body style="font-family: 'Open Sans'; ">
+        <p:growl  id="growl" sticky="true" showDetail="true"/>
+        <div id="login-page" style="zoom: 90%;">
+	  	<div class="container">
+                  
+                    <b:form class="form-login" >
+		        <h2 class="form-login-heading">RECENS APP</h2>
+                        <h4 class="form-login-heading2">Authentification</h4>
+                        <div class="login-wrap">
+                            
+                            <h:inputText style="zoom: 85%; text-align: center;" pt:placeholder="Nom d'utilisateur" class="form-control" required="true" requiredMessage="Vide" value="#{login.user}" />                            
+                            <br></br>
+                            <h:inputSecret style="zoom: 85%; text-align: center;" pt:placeholder="Mot de passe" class="form-control" required="true" requiredMessage="Vide" value="#{login.pwd}" />
+                            <hr></hr>
+                            <b:commandButton style="margin-left: 3.75rem; zoom: 95%;" icon-align="left" iconAwesome="fa fa-lock" class="btn btn-theme" action="#{login.validateUsernamePassword}" value=" Se connecter" />
+                           </div>
+		</b:form>
+		          <!-- Modal -->
+		          
+		          <!-- modal -->
+		
+		    	  	
+	  	
+	  	</div>
+	  </div>
+        <footer class="site-footer-login">
+            <div class="text-right" style="margin-right: 20px;margin-top: 260px; zoom: 90%;">
+              2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+             
+          </div>
+      </footer>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("assets/img/backlogin.jpg", {speed: 500});
+    </script>
+    </h:body>
+</html>
+

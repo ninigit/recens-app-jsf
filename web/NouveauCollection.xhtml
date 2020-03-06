@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Collection</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+
+    </h:head>
+    <h:body style="font-family: 'Open Sans';zoom: 90%;">
+        <section id="container" >
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            <header class="header " style="background: #424A5D;" >
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <!--logo start-->
+                <a class="logo"><b>RECENS APP</b></a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+
+                    <!--  notification end -->
+                </div>
+                <h:form>
+                    <div class="top-menu">
+                        <ul class="nav pull-right top-menu">
+                            <li>
+                                <b:commandLink iconAwesome="fa fa-power-off" class="logout" action="#{login.logout}" value="Se deconnecter"></b:commandLink>
+                            </li>
+                        </ul>
+                    </div></h:form>
+            </header>
+            <!--header end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse bg-gray-800 ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu " id="nav-accordion">
+                        <h5 class="centered" style="font-weight: 100;">#{login.typeUser(login.user)}</h5>
+                        <p class="centered"><img src="assets/img/logo_TPF.jpg" class="img-circle" width="60"/></p>
+                        <h5 class="centered">#{login.user}</h5>
+
+                        <li class=" mt " >
+                            <a  href="Accueil.xhtml">
+                                <i class=" fa fa-home"></i>
+                                <span >Accueil</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-users"></i>
+                                <span>Personnes</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Personnes.xhtml">Types de personne</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Carriere.xhtml">Types de carrière</a></li>
+                                </c:if>
+
+                            </ul>
+                        </li>
+
+                        <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                            <li class="sub-menu">
+                                <a  href="javascript:;" >
+                                    <i class="fa fa-try"></i>
+                                    <span>Espèces</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a  href="Espece.xhtml">Espèce</a></li>
+                                    <li><a  href="Regne.xhtml">Règne</a></li>
+                                    <li ><a  href="Embranchement.xhtml">Embranchement</a></li>
+                                    <li><a  href="Classe.xhtml">Classe</a></li>
+                                    <li><a  href="Ordre.xhtml">Ordre</a></li>                                
+                                    <li><a  href="Famille.xhtml">Famille</a></li>
+                                    <li><a  href="Genre.xhtml">Genre</a></li>
+                                    <li><a  href="StatusUCN.xhtml">Statut IUCN</a></li>
+                                </ul>
+                            </li>
+                        </c:if>
+
+                        <li class="sub-menu">
+                            <a class="active" href="javascript:;" >
+                                <i class="fa fa-compass"></i>
+                                <span>Collecte</span>
+                            </a>
+                            <ul class="sub">
+                                <li class="active"><a  href="Collection.xhtml">Collection</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="CodeCollection.xhtml">Code de collection</a></li>
+                                    <li ><a  href="MethodeObs.xhtml">Méthode d'observation</a></li>                                
+                                    <li><a  href="MethodeCapture.xhtml">Méthode de capture</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-map-marker"></i>
+                                <span>Localisation</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Site.xhtml">Site</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Region.xhtml">Region</a></li>
+                                    <li><a  href="District.xhtml">District</a></li>
+                                    <li><a  href="Commune.xhtml">Commune</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-bar-chart-o"></i>
+                                <span>Autres</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Bilan.xhtml">Bilans</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                    <li><a  href="Comptes.xhtml">Comptes</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper site-min-height">
+                    <div class="mt" style="margin-top: 1.5rem;">
+                        <h4 style="font-weight: 300;"><i class="fa fa-compass"></i> Collection <i class="fa fa-angle-right"></i> Nouvelle collection</h4>
+                    </div>
+                    <hr></hr>
+
+                    <div class="panel panel-theme" style="zoom: 90%;">
+                        <div class="panel-heading">Nouvelle collection</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="clos-sm-8 ">
+                            <f:view>
+
+                                <b:form>
+                                        
+                                        <h:outputLabel value="Titre" for="titre" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputTextarea class="form-control" id="titre" value="#{bean_Collection.collection.titre}" title="Titre" required="true" requiredMessage="*Veuillez remplir le champ titre"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="titre"/>
+                                        </div>
+                                
+                                        <h:outputLabel value="Code de l'institution" for="codeinstitution" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText class="form-control" id="codeinstitution" value="#{bean_Collection.collection.codeinstitution}" title="Code de l'institution" required="true" requiredMessage="*Veuillez remplir le champ code d'institution"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="codeinstitution"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Code de collection" for="codecollection" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            
+                                            <b:selectOneMenu class="form-control"  id="codecollection" value="#{bean_Collection.collection.codecollection}">
+                                                <f:selectItems value="#{bean_Codecollection.lister()}" var="c" itemLabel="#{c.descodecollection}" itemValue="#{c.descodecollection}"/> 
+                                              
+                                            </b:selectOneMenu>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="codecollection"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Espèce" for="desespece" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            
+                                            <b:selectOneMenu class="form-control"  id="desespece" value="#{bean_Collection.collection.desespece}">
+                                                <f:selectItems value="#{bean_Espece.lister()}" var="c" itemLabel="#{c.nomscientifiqueactuel}" itemValue="#{c.nomscientifiqueactuel}"/> 
+                                              
+                                            </b:selectOneMenu>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="desespece"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Site" for="dessite" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                 
+                                            <b:selectOneMenu class="form-control"  id="dessite" value="#{bean_Collection.collection.dessite}">
+                                                <f:selectItems value="#{bean_Site.lister()}" var="c" itemLabel="#{c.dessite}" itemValue="#{c.dessite}"/> 
+                                              
+                                            </b:selectOneMenu>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="dessite"/>
+                                        </div>
+                                                                                
+                                        <h:outputLabel value="Type d'observateur" for="typeobservateur" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">                                        
+                                        <b:selectOneMenu class="form-control"  id="typeobservateur" value="#{bean_Collection.collection.typeobservateur}">
+                                        <f:selectItem itemValue="Humain" itemLabel="Humain"/>
+                                        <f:selectItem itemValue="Camera" itemLabel="Camera"/>                                 
+                                        </b:selectOneMenu>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Collecteur(s)" for="collecteur" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:selectOneMenu class="form-control"  id="collecteur" value="#{bean_Collection.collection.collecteur}">
+                                                <f:selectItems value="#{bean_Etudiant.lister()}" var="c" itemLabel="#{c.nom} #{c.prenoms}" itemValue="#{c.nom} #{c.prenoms}"/>
+                                                 <f:selectItems value="#{bean_Agent.lister()}" var="a" itemLabel="#{a.nom} #{a.prenoms}" itemValue="#{a.nom} #{a.prenoms}"/> 
+                                                 <f:selectItems value="#{bean_Equipe.lister()}" var="e" itemLabel="#{e.nomconcat}" itemValue="#{e.nomconcat}"/> 
+                                            </b:selectOneMenu>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                        <h:message style="color: #E04343;" for="collecteur"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Guide" for="guide" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText class="form-control" id="guide" value="#{bean_Collection.collection.guide}" title="Guide" required="true" requiredMessage="*Veuillez remplir le champ guide"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="guide"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Habitat d'observation" for="habitatobs" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText class="form-control" id="habitatobs" value="#{bean_Collection.collection.habitatobs}" title="Habitat d'observation" required="true" requiredMessage="*Veuillez remplir le champ habitat d'observation"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="habitatobs"/>
+                                        </div>
+                                        
+                                        
+                                        <h:outputLabel value="Nombre(s) observé(s)" for="nbobserves" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText type="number" class="form-control" id="nbobserves" value="#{bean_Collection.collection.nbobserves}" title="Nombre(s) observé(s)" required="true" requiredMessage="*Veuillez remplir le champ nombre(s) observé(s)"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="nbobserves"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Méthode de collecte" for="methodecollecte" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:selectOneMenu class="form-control"  id="methodecollecte" value="#{bean_Collection.collection.methodecollecte}">
+                                                <f:selectItems value="#{bean_Methodeobservation.lister()}" var="c" itemLabel="#{c.desmethodeobservation}" itemValue="#{c.desmethodeobservation}"/> 
+                                                <f:selectItems value="#{bean_Methodecapture.lister()}" var="m" itemLabel="#{m.desmethodecapture}" itemValue="#{m.desmethodecapture}"/>
+                                            </b:selectOneMenu>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="methodecollecte"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Date de debut de collecte" for="datedebut" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:datepicker changeMonth="true" changeYear="true" id="datedebut" value="#{bean_Collection.collection.datedebut}" required="true"  requiredMessage="*Veuillez remplir le champ date de debut" />
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="datedebut"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Date de fin de collecte" for="datefin" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:datepicker changeMonth="true" changeYear="true" id="datefin" value="#{bean_Collection.collection.datefin}" required="true"  requiredMessage="*Veuillez remplir le champ date de fin" />
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="datefin"/>
+                                        </div>
+                                       
+                                        <h:outputLabel value="Date de exacte de collecte" for="dateexacte" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:datepicker changeMonth="true" changeYear="true" id="dateexacte" value="#{bean_Collection.collection.dateexacte}" required="true"  requiredMessage="*Veuillez remplir le champ date exacte" />
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="dateexacte"/>
+                                        </div>
+                                        
+                                        
+                                        <h:outputLabel value="Latitude decimal" for="latitudedecimal" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText  converterMessage="Veuillez entrer un nombre décimal uniquement"  class="form-control" id="latitudedecimal" value="#{bean_Collection.collection.latitudedecimal}" title="Latitude decimal" required="true" requiredMessage="*Veuillez remplir le champ latitude decimal"/>
+                                          
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="latitudedecimal"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Longitude decimal" for="longitudedecimal" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText converterMessage="Veuillez entrer un nombre décimal uniquement"  class="form-control" id="longitudedecimal" value="#{bean_Collection.collection.longitudedecimal}" title="Longitude decimal" required="true" requiredMessage="*Veuillez remplir le champ longitude decimal"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="longitudedecimal"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Latitude exacte" for="latitudeexacte" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText class="form-control" id="latitudeexacte" value="#{bean_Collection.collection.latitudeexacte}" title="Latitude exacte" required="true" requiredMessage="*Veuillez remplir le champ latitude exacte"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="latitudeexacte"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Longitude exacte" for="longitudeexacte" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText class="form-control" id="longitudeexacte" value="#{bean_Collection.collection.longitudeexacte}" title="Longitude exacte" required="true" requiredMessage="*Veuillez remplir le champ longitude exacte"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="longitudeexacte"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Altitude minimale (en mètre)" for="altitudemin" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText type="number" class="form-control" id="altitudemin" value="#{bean_Collection.collection.altitudemin}" title="Altitude minimale" required="true" requiredMessage="*Veuillez remplir le champ altitude minimale"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="altitudemin"/>
+                                        </div>
+                                        
+                                        <h:outputLabel value="Altitude maximale (en mètre)" for="altitudemax" styleClass="control-label col-sm-2 "/>
+                                        <div class="col-sm-10 formulaire ">
+                                            <b:inputText type="number" class="form-control" id="altitudemax" value="#{bean_Collection.collection.altitudemax}" title="Altitude maximale" required="true" requiredMessage="*Veuillez remplir le champ altitude maximale"/>
+                                        </div>
+                                        <div class="col-sm-10 formulaire ">
+                                    <h:message style="color: #E04343;" for="altitudemax"/>
+                                        </div>
+                                        
+                                        <div class="col-sm-10">
+                                    <br></br>
+                                    <b:commandButton iconAwesome="fa fa-save" value="Enregistrer" action="#{bean_Collection.ajouter()}" class="btn btn-sm btn-success"/>
+                                    
+                            </div>
+                                        
+                                </b:form>
+                                <b:form class="col-sm-10">
+                            
+                                    <b:commandButton iconAwesome="fa-arrow-left" style="margin-left: 8.5rem;margin-top: -4rem;" value="Retour à la liste" class=" btn btn-sm btn-primary" action="#{bean_Collection.affichliste()}"/>
+                                    </b:form> 
+                            </f:view>
+
+                        </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Content Row -->
+
+
+                </section><!--wrapper -->
+            </section><!-- /MAIN CONTENT -->
+
+            <!--main content end-->
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+        </section>
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+        <!--common script for all pages-->
+        <script src="assets/js/common-scripts.js"></script>
+
+        <!--script for this page-->
+
+        <script>
+            //custom select box
+
+            $(function () {
+                $('select.styled').customSelect();
+            });
+
+        </script>
+    </h:body>
+</html>
+
+

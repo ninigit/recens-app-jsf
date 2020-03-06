@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Accueil</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+
+
+    </h:head>
+    <h:body style="font-family: 'Open Sans'; zoom: 90%;">
+        <section id="container">
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            
+            <header class="header " style="background: #424A5D;" >
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <!--logo start-->
+                <a class="logo"><b>RECENS APP</b></a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+
+                    <!--  notification end -->
+                </div>
+                <h:form>
+                    <div class="top-menu">
+                        <ul class="nav pull-right top-menu">
+                            <li>
+                                <b:commandLink iconAwesome="fa fa-power-off" class="logout" action="#{login.logout}" value="Se deconnecter"></b:commandLink>
+                            </li>
+                        </ul>
+                    </div></h:form>
+
+            </header>
+            <!--header end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse bg-gray-800 ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu " id="nav-accordion">
+                        <h5 class="centered" style="font-weight: 100;">#{login.typeUser(login.user)}</h5>
+                        <p class="centered"><img src="assets/img/logo_TPF.jpg" class="img-circle" width="60"/></p>
+                        <h5 class="centered">#{login.user}</h5>
+
+                        <li class=" mt " >
+                            <a class="active" href="Accueil.xhtml">
+                                <i class=" fa fa-home"></i>
+                                <span >Accueil</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class="fa fa-users"></i>
+                                <span>Personnes</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Personnes.xhtml">Types de personne</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Carriere.xhtml">Types de carrière</a></li>
+                                </c:if>
+
+                            </ul>
+                        </li>
+                        
+                        
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class="fa fa-try"></i>
+                                <span>Espèces</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Espece.xhtml">Espèce</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Regne.xhtml">Règne</a></li>
+                                <li><a  href="Embranchement.xhtml">Embranchement</a></li>
+                                <li><a  href="Classe.xhtml">Classe</a></li>
+                                <li><a  href="Ordre.xhtml">Ordre</a></li>                                
+                                <li><a  href="Famille.xhtml">Famille</a></li>
+                                <li><a  href="Genre.xhtml">Genre</a></li>
+                                <li><a  href="StatusUCN.xhtml">Statut IUCN</a></li>
+                                </c:if>
+                                </ul>
+                        </li>
+                            
+                        
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-compass"></i>
+                                <span>Collecte</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Collection.xhtml">Collection</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="CodeCollection.xhtml">Code de collection</a></li>
+                                <li><a  href="MethodeObs.xhtml">Méthode d'observation</a></li>                                
+                                <li><a  href="MethodeCapture.xhtml">Méthode de capture</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+                        
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-map-marker"></i>
+                                <span>Localisation</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Site.xhtml">Site</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Region.xhtml">Region</a></li>
+                                <li><a  href="District.xhtml">District</a></li>
+                                <li><a  href="Commune.xhtml">Commune</a></li>
+                                </c:if>
+                                 </ul>
+                        </li>
+                            
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-bar-chart-o"></i>
+                                <span>Autres</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Bilan.xhtml">Bilans</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Comptes.xhtml">Comptes</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper site-min-height">
+                    <div class="mt" style="margin-top: 1.5rem;">
+                        <h4 style="font-weight: 300;"><i class="fa fa-home"></i> Accueil</h4>
+                    </div>
+                    <hr></hr>
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <a href="Collection.xhtml">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Collections</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800 " ><b>#{bean_Collection.totalcollection()}</b></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-book fa-3x text-gray-300" style="margin-left: -2rem;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           </a>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <a href="Espece.xhtml">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Espèces</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><b>#{bean_Espece.totalespece()}</b></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-try fa-3x text-gray-300" style="margin-left: -2rem;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           </a>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <a href="Espece.xhtml">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1" style="color: #E04343;">Espèces endemiques</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><b>#{bean_Espece.totalendemique()}</b></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fa fa-warning fa-3x text-gray-300 " style="margin-left: -2rem;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           </a>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <a href="Site.xhtml">
+                            <div class="card border-left-warning shadow h-100 py-2 ">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Lieux  visités</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><b>#{bean_Site.totalsite()}</b></div>
+                                        </div>
+                                        <div class="col-auto" >
+                                            <i class=" fa fa-map-marker fa-3x text-gray-300 " style="margin-left: -2rem;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div style="margin-top: -.75rem;" >
+                        <h4 style="font-weight: 400;color: #107C41;">The Peregrine Fund Madagascar Project</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 mb " style="margin-bottom: 0px;margin-top: 5px;">
+                            <a href="Top5.xhtml"><b:alert severity="info" closable="true" style="zoom: 96%;" title="Espèce favoris" autoUpdate="true" value="#{bean_Top5.EspeceFavoris()}"/></a>		
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                            <div class="content-panel pn">
+                                <div id="profile-01">
+
+                                </div>
+                                <div class="profile-01 centered">
+                                    <a href="http://www.gmail.com"><p>NOTRE COURRIEL</p></a>
+                                </div>
+                                <div class="centered text-uppercase">
+                                    <h6><i class="fa fa-envelope"></i><br/>pfundmad@peregrinefund.org </h6>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                            <div class="content-panel pn">
+                                <div id="profile-02">
+                                    <div class="user">
+                                        <img src="assets/img/logo_TPF.jpg" class="img-circle" width="80"/>
+                                        <h4>#{login.user}</h4>
+                                    </div>
+                                </div>
+                                <div class="pr2-social centered">
+                                    <a href="http://www.google.com"><i class="fa fa-google"></i></a>
+                                    <a href="http://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                                    <a href="http://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div><!--/ col-md-4 -->
+                    </div>
+
+                    <!-- /Slider -->
+
+                </section><!--wrapper -->
+               
+            </section><!-- /MAIN CONTENT -->
+
+            <!--main content end-->
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+             
+        </section>
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+
+        <!--common script for all pages-->
+        <script src="assets/js/common-scripts.js"></script>
+
+        <!--script for this page-->
+
+        <script>
+            //custom select box
+
+            $(function () {
+                $('select.styled').customSelect();
+            });
+
+        </script>
+    </h:body>
+</html>
+

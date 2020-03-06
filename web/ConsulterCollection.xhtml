@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Visualisation</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />    
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+    </h:head>
+    
+        <h:body style="font-family: 'Open Sans';">
+        <style>
+            .formvisualisationcollection {
+                max-width: 1230px;
+                width: 1200px;
+              
+                margin: 10px auto 0;
+                background: #424A5D;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                zoom: 90%;
+                margin-top: 10rem;
+                
+                
+               
+            }
+            .formvisualisationcollection  h2.form-login-heading {
+                margin: 0;
+                padding: 25px 20px;
+                text-align: center;
+                background: #107C41;
+                border-radius: 5px 5px 0 0;
+                -webkit-border-radius: 5px 5px 0 0;
+                color: #fff;
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+            .colonne2{
+                padding-left: 60rem;
+                margin-top: -27.5rem;
+            }
+            .colonne3{
+                padding-left: 79rem;
+                margin-top: -27.5rem;
+            }
+            .titre{
+                font-weight: 100;
+            }
+            .btnretour{
+                margin-left: 42rem;
+                zoom: 90%;
+            }
+
+        </style>
+
+        <div id="login-page" style="zoom: 90%;">
+            <div class="container" >
+
+                <b:form class="formvisualisationcollection"  >
+                    <h2 class="form-login-heading">Informations Collection</h2>
+                    <h4 class="form-login-heading2" style="padding-bottom: 1rem">Collection du <h:outputText value="#{bean_Collection.collection.datedebut}">
+                                                        <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                                    </h:outputText> au <h:outputText value="#{bean_Collection.collection.datefin}">
+                                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                                    </h:outputText></h4>
+                    <div class="login-wrap" style="color: #fff;">
+
+                        <div class="col-md-3" >
+
+                            <h5 class="titre">Titre</h5>
+                            <h5>#{bean_Collection.collection.titre}</h5>
+
+
+                            <h5 class="titre">Code d'institution</h5>
+                            <h5>#{bean_Collection.collection.codeinstitution}</h5>
+
+
+                            <h5 class="titre">Code de collection</h5>
+                            <h5>#{bean_Collection.collection.codecollection}</h5>
+                            
+                            <h5 class="titre">Espèce</h5>
+                            <h5>#{bean_Collection.collection.desespece}</h5>
+
+                            <h5 class="titre">Site</h5>
+                            <h5>#{bean_Collection.collection.dessite}</h5>
+
+
+                            <h5 class="titre">Type d'observateur</h5>
+                            <h5>#{bean_Collection.collection.typeobservateur}</h5>
+                            
+                            <h5 class="titre">Collecteur(s)</h5>
+                            <h5>#{bean_Collection.collection.collecteur}</h5>
+                            
+                           
+
+                        </div>
+                        
+                        <div class="col-md-3 colonne2" >
+                             <h5 class="titre">Guide</h5>
+                            <h5>#{bean_Collection.collection.guide}</h5>
+                            
+                            <h5 class="titre">Habitat observé</h5>
+                            <h5>#{bean_Collection.collection.habitatobs}</h5>
+
+                            <h5 class="titre">Nombre d'individus observés</h5>
+                            <h5>#{bean_Collection.collection.nbobserves}</h5>
+
+
+                            <h5 class="titre">Méthode de collecte</h5>
+                            <h5>#{bean_Collection.collection.methodecollecte}</h5>
+                            
+                            <h5 class="titre">Date de debut de collecte</h5>
+                            <h5><h:outputText value="#{bean_Collection.collection.datedebut}">
+                                                        <f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText></h5>
+                            
+                            <h5 class="titre">Date de fin de collecte</h5>
+                            <h5><h:outputText value="#{bean_Collection.collection.datefin}">
+                                                        <f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText></h5>
+
+                            <h5 class="titre">Date exacte de collecte</h5>
+                            <h5><h:outputText value="#{bean_Collection.collection.dateexacte}">
+                                                        <f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText></h5>
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="col-md-3 colonne3" >
+                            
+                            <h5 class="titre">Latitude decimal</h5>
+                            <h5>#{bean_Collection.collection.latitudedecimal}</h5>
+                            
+                            <h5 class="titre">Longitude decimal</h5>
+                            <h5>#{bean_Collection.collection.longitudedecimal}</h5>
+
+                            <h5 class="titre">Latitude exacte</h5>
+                            <h5>#{bean_Collection.collection.latitudeexacte}</h5>
+
+
+                            <h5 class="titre">Longitude exacte</h5>
+                            <h5>#{bean_Collection.collection.longitudeexacte}</h5>
+                            
+                            <h5 class="titre">Altitude minimale</h5>
+                            <h5>#{bean_Collection.collection.altitudemin}</h5>
+                            
+                            <h5 class="titre">Altitude maximale</h5>
+                            <h5>#{bean_Collection.collection.altitudemax}</h5>
+
+                            
+                            
+                        </div>
+                        <h5 class="titre" style="color: #424A5D;font-size: 2px;">Diplôme</h5>
+                         <hr></hr>
+                        
+                        
+                        <b:form>
+                            
+                            <b:commandButton  icon-align="left" iconAwesome="fa-arrow-left" class="btn btn-primary btnretour" action="#{bean_Collection.affichliste()}" value=" Retour à la liste" />
+                        </b:form>
+                        
+                    </div>
+                    
+                </b:form>
+                <!-- Modal -->
+
+                <!-- modal -->
+
+
+
+            </div>
+        </div>
+        <footer class="site-footer-login">
+            <div class="text-right" style="margin-right: 20px;margin-top:5rem;">
+                2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+
+            </div>
+        </footer>
+        
+        
+        
+                <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <!--BACKSTRETCH-->
+        <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+        <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+        <script>
+            $.backstretch("assets/img/ois6.jpg", {speed: 500});
+        </script>
+    </h:body>
+</html>
+

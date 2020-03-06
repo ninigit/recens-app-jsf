@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Personnes</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+
+    </h:head>
+    <h:body style="font-family: 'Open Sans';zoom: 90%;">
+        <section id="container" >
+            <!-- **********************************************************************************************************************************************************
+            TOP BAR CONTENT & NOTIFICATIONS
+            *********************************************************************************************************************************************************** -->
+            <!--header start-->
+            <header class="header " style="background: #424A5D;" >
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+                <!--logo start-->
+                <a class="logo"><b>Recens app</b></a>
+                <!--logo end-->
+                <div class="nav notify-row" id="top_menu">
+                    <!--  notification start -->
+
+                    <!--  notification end -->
+                </div>
+                <h:form>
+                    <div class="top-menu">
+                        <ul class="nav pull-right top-menu">
+                            <li>
+                                <b:commandLink iconAwesome="fa fa-power-off" class="logout" action="#{login.logout}" value="Se deconnecter"></b:commandLink>
+                            </li>
+                        </ul>
+                    </div></h:form>
+            </header>
+            <!--header end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN SIDEBAR MENU
+            *********************************************************************************************************************************************************** -->
+            <!--sidebar start-->
+            <aside>
+                <div id="sidebar"  class="nav-collapse bg-gray-800 ">
+                    <!-- sidebar menu start-->
+                    <ul class="sidebar-menu " id="nav-accordion">
+                        <h5 class="centered" style="font-weight: 100;">#{login.typeUser(login.user)}</h5>
+                        <p class="centered"><img src="assets/img/logo_TPF.jpg" class="img-circle" width="60"/></p>
+                        <h5 class="centered">#{login.user}</h5>
+
+                        <li class=" mt " >
+                            <a  href="Accueil.xhtml">
+                                <i class=" fa fa-home"></i>
+                                <span >Accueil</span>
+                            </a>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a class="active" href="javascript:;" >
+                                <i class="fa fa-users"></i>
+                                <span>Personnes</span>
+                            </a>
+                            <ul class="sub">
+                                <li class="active"><a  href="Personnes.xhtml">Types de personne</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Carriere.xhtml">Types de carrière</a></li>
+                                </c:if>
+
+                            </ul>
+                        </li>
+                        
+                        <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class="fa fa-try"></i>
+                                <span>Espèces</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Espece.xhtml">Espèce</a></li>
+                                <li><a  href="Regne.xhtml">Règne</a></li>
+                                <li><a  href="Embranchement.xhtml">Embranchement</a></li>
+                                <li><a  href="Classe.xhtml">Classe</a></li>
+                                <li><a  href="Ordre.xhtml">Ordre</a></li>                                
+                                <li><a  href="Famille.xhtml">Famille</a></li>
+                                <li><a  href="Genre.xhtml">Genre</a></li>
+                                <li><a  href="StatusUCN.xhtml">Statut IUCN</a></li>
+                                </ul>
+                        </li>
+                            </c:if>
+                        
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-compass"></i>
+                                <span>Collecte</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Collection.xhtml">Collection</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="CodeCollection.xhtml">Code de collection</a></li>
+                                <li><a  href="MethodeObs.xhtml">Méthode d'observation</a></li>                                
+                                <li><a  href="MethodeCapture.xhtml">Méthode de capture</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+                        
+                        <li class="sub-menu">
+                            <a  href="javascript:;" >
+                                <i class="fa fa-map-marker"></i>
+                                <span>Localisation</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Site.xhtml">Site</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Region.xhtml">Region</a></li>
+                                <li><a  href="District.xhtml">District</a></li>
+                                <li><a  href="Commune.xhtml">Commune</a></li>
+                                </c:if>
+                                 </ul>
+                        </li>
+                            
+
+                        <li class="sub-menu">
+                            <a href="javascript:;" >
+                                <i class=" fa fa-bar-chart-o"></i>
+                                <span>Autres</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="Bilan.xhtml">Bilans</a></li>
+                                <c:if test="#{login.typeUser(login.user)=='Administrateur'}">
+                                <li><a  href="Comptes.xhtml">Comptes</a></li>
+                                </c:if>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- sidebar menu end-->
+                </div>
+            </aside>
+            <!--sidebar end-->
+
+            <!-- **********************************************************************************************************************************************************
+            MAIN CONTENT
+            *********************************************************************************************************************************************************** -->
+            <!--main content start-->
+            <section id="main-content">
+                <section class="wrapper site-min-height">
+                    <div class="mt" style="margin-top: 1.5rem;">
+                        <h4 style="font-weight: 300;"><i class="fa fa-users"></i> Personnes <i class="fa fa-angle-right"></i> Liste des agents</h4>
+                    </div>
+                    <hr></hr>
+
+                    <div class="col-12 col-sm-6 col-lg-4" style="padding : 0;zoom:90%;">
+                        <div class="cardtab card-primary card-outline card-outline-tabs">
+                            <div class="card-header p-0 border-bottom-0">
+                                <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="Personnes.xhtml" >Etudiants</a>
+                                    </li>
+                                    <li class="active">
+                                        <a style="background: #107C41;color: #fff;" class="nav-link" href="#agent" data-toggle="pill"  role="tab" aria-controls="custom-tabs-three-profile" aria-selected="false">Agents</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="CobaList.xhtml" >COBA</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="EquipeList.xhtml" >Equipes</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="card-body2">
+                                <div class="tab-content" id="custom-tabs-three-tabContent">
+
+                                    <div class="tab-pane fade active in" id="agent" role="tabpanel" aria-labelledby="custom-tabs-three-profile-tab">
+                                        La liste des agents internes et externes vis a vis du TPF 
+
+                                        <form  action="NouveauAgent.xhtml" style="margin-top: 0.5rem;">                         
+                                            <button class="btn  btn-theme btn-sm" type="submit"><i class="fa fa-plus"></i> Nouvel Agent</button>
+                                        </form>
+                                        <br></br>
+                                        <f:view>
+                                            <h:form style="margin-top: -1rem;">
+
+
+
+                                                <p:dataTable class="form-group" id="tbl" var="item" value="#{bean_Agent.lister()}"
+                                                             paginator="true"
+                                                             emptyMessage="Aucune donnée à afficher"
+                                                             currentPageReportTemplate="{startRecord} à {endRecord} sur les {totalRecords} agents"
+                                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                                             rowsPerPageTemplate="5,10,15" rows="5" style="font-family: 'Open Sans';margin-bottom:20px;zoom: 80%;"  scrollable="true">
+
+
+
+                                                    <p:column width="80" >
+                                                        <f:facet name="header">
+                                                          
+                                                        </f:facet>
+                                                        <b:commandButton iconAwesome="fa fa-edit fa-1x" title="Modifier" class="btn btn-sm btn-warning " style="font-family: 'Open Sans';" action="#{bean_Agent.obtenir(item.id)}"/>
+
+                                                    </p:column>
+                                                    <p:column width="80">
+                                                        <f:facet name="header">
+                                                          
+                                                        </f:facet>
+                                                        <b:commandButton iconAwesome="fa fa-trash-o fa-1x" title="Supprimer" class="btn btn-sm btn-danger" style="font-family: 'Open Sans';" action="#{bean_Agent.obtenirPourSupprimer(item.id)}"/>
+                                                    </p:column>
+                                                    <p:column width="80">
+                                                        <f:facet name="header">
+
+                                                        </f:facet>
+                                                        <b:commandButton iconAwesome="fa fa-search fa-1x" title="Visualiser" style="font-family: 'Open Sans'; background: #CECECE;" action="#{bean_Agent.visualiser(item.id)}" class="btn btn-sm " />
+                                                    </p:column>
+
+                                                    <p:column  width="70">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Id" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.id}" />
+                                                    </p:column>
+
+                                                    <p:column filterBy="#{item.nom}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Nom"/>
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.nom}" />
+                                                    </p:column>
+
+                                                    <p:column filterBy="#{item.prenoms}" width="300">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Prenoms" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.prenoms}" />
+                                                    </p:column>
+
+                                                    <p:column filterBy="#{item.datenaiss}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Date de naissance" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.datenaiss}">
+                                                            <f:convertDateTime pattern="dd-MM-yyyy"/>
+
+                                                        </h:outputText>
+                                                    </p:column>
+
+                                                    <p:column filterBy="#{item.lieunaiss}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Lieu de naissance" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.lieunaiss}" />
+                                                    </p:column>
+
+                                                    <p:column filterBy="#{item.sexe}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Sexe" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.sexe}" />
+                                                    </p:column>
+
+
+
+                                                    <p:column filterBy="#{item.nummatricule}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Numéro du matricule" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.nummatricule}" />
+                                                    </p:column>
+
+                                                    <p:column filterBy="#{item.cin}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="CIN" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.cin}" />
+                                                    </p:column>
+                                                    <p:column  filterBy="#{item.contact}" width="300">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Contact" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.contact}" />
+                                                    </p:column>
+
+
+                                                    <p:column  filterBy="#{item.carriere}" width="300">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Carrière" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.carriere}" />
+                                                    </p:column>
+
+                                                    <p:column  filterBy="#{item.employeur}" width="150">
+                                                        <f:facet name="header">
+                                                            <h:outputText value="Employeur" />
+                                                        </f:facet>
+                                                        <h:outputText value="#{item.employeur}" />
+                                                    </p:column>
+
+                                                </p:dataTable>
+
+
+
+                                            </h:form>
+                                        </f:view> 
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+
+                </section><!--wrapper -->
+            </section><!-- /MAIN CONTENT -->
+
+            <!--main content end-->
+            <!--footer start-->
+            <footer class="site-footer">
+                <div class="text-center">
+                    2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+                    <a href="#" class="go-top">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--footer end-->
+        </section>
+
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+        <!--common script for all pages-->
+        <script src="assets/js/common-scripts.js"></script>
+
+        <!--script for this page-->
+
+        <script>
+            //custom select box
+
+            $(function () {
+                $('select.styled').customSelect();
+            });
+
+        </script>
+    </h:body>
+</html>
+

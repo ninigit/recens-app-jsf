@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Confirmation</title>
+        <link href="assets/css/bootstrap.css" rel="stylesheet"/>
+        <!--external css-->
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="assets/img/logo_TPF.ico" rel="shortcut icon" />    
+        <!-- Custom styles for this template -->
+        <link href="assets/css/style.css" rel="stylesheet"/>
+        <link href="assets/css/style-responsive.css" rel="stylesheet"/>
+    </h:head>
+    <h:body style="font-family: 'Open Sans';">
+        <p:growl  id="growl" sticky="true" showDetail="true"/>
+        <style>
+            .textconf{
+                 color:#fff;
+    font-weight: 100;
+    margin-left: 1rem;
+    margin-top: -1rem;
+    font-size: 1.3rem;
+            }
+        </style>
+        <div id="login-page" style="margin-top: 8rem;zoom: 90%;">
+            <div class="container">
+
+                <b:form class="form-login" >
+                    <h2 class="form-login-heading">Confirmation</h2>
+
+                    <div class="login-wrap">
+                        <div class="col-sm-10 formulaire ">
+                            <b:inputText type="hidden" class="form-control " id="id" value="#{bean_District.district.id}"/>
+                        </div>
+                        
+                        <h4 class="textconf" >Voulez-vous vraiment supprimer ce district (#{bean_District.district.desdistrict}) de la base de données?</h4>
+                    <h5 class="titre" style="color: #424A5D;font-size: 2px;margin-top: -2rem;">Diplôme</h5>
+                        <hr></hr>
+                    <b:commandButton style="margin-left: 3rem;" icon-align="left" iconAwesome="fa fa-check" class="btn btn-danger" action="#{bean_District.supprimer(bean_District.district.id)}" value=" Oui" />
+                    <b:commandButton style="margin-left: 1rem;" icon-align="left" iconAwesome="fa-arrow-left" class="btn btn-primary " action="#{bean_District.affichliste()}" value=" Non" />
+
+            </div>
+            </b:form>
+            <!-- Modal -->
+
+            <!-- modal -->
+
+
+
+        </div>
+        </div>
+        <footer class="site-footer-login">
+            <div class="text-right" style="margin-right: 20px;margin-top: 20rem;">
+                2019 &copy; BERAVINA Andrinantenaina Jean Stephanini
+
+            </div>
+        </footer>
+        <!-- js placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <!--BACKSTRETCH-->
+        <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+        <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+        <script>
+            $.backstretch("assets/img/ois6.jpg", {speed: 500});
+        </script>
+    </h:body>
+</html>
+
